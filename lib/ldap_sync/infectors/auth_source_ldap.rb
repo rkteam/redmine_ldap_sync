@@ -464,7 +464,6 @@ module LdapSync::Infectors::AuthSourceLdap
       cattr_accessor :trace_level do
         :debug
       end
-      unloadable
     end
   end
 end
