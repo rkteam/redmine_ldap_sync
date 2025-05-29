@@ -17,8 +17,10 @@
 # along with Redmine LDAP Sync.  If not, see <http://www.gnu.org/licenses/>.
 require 'net/ldap'
 
-class Net::LDAP
-  if Gem.loaded_specs['net-ldap'].version < Gem::Version.new('0.12.0')
-    Error = LdapError
+module LdapSync::CoreExt::Ldap
+  class Net::LDAP
+    if Gem.loaded_specs['net-ldap'].version < Gem::Version.new('0.12.0')
+      Error = LdapError
+    end
   end
 end
