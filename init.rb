@@ -14,10 +14,9 @@ Redmine::Plugin.register :redmine_ldap_sync do
                     :html => {:class => 'icon icon-ldap-sync'}
 end
 
-RedmineApp::Application.config.after_initialize do
-  require_relative 'lib/ldap_sync/core_ext'
-  require_relative 'lib/ldap_sync/infectors'
-end
+require_relative 'lib/ldap_sync/core_ext'
+require_relative 'lib/ldap_sync/infectors'
+User.const_set(:STANDARD_FIELDS, (LdapSync::Infectors::User::STANDARD_FIELDS))
 
 # hooks
 require_relative 'lib/ldap_sync/hooks'
